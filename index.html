@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assisteens: Turning Teenagers into Citizens</title>
+  <meta name="description" content="A documentary and a recruitment short about Assisteens, the teen volunteer group of Assistance League of Greater San Diego, edited by Emmet Muschenetz.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;1,300&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #1E2A3A; --bg2: #172231; --accent: #E8846B; --accent-rgb: 232,132,107; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Source Sans Pro', sans-serif; background: var(--bg); color: white; }
+    a { color: var(--accent); }
+    .top-bar { position: absolute; top: 0; left: 0; right: 0; height: 8px; background: var(--accent); }
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 3rem 3rem 4.5rem;
+    }
+    .layout { display: flex; align-items: center; gap: 2.5rem; width: 100%; max-width: 1100px; }
+    .content { flex: 1; text-align: center; display: flex; flex-direction: column; justify-content: center; }
+    h1 { font-family: 'Merriweather', serif; font-weight: 300; font-size: 2.8rem; line-height: 1.3; margin-bottom: 0.6rem; }
+    .subtitle { font-family: 'Merriweather', serif; font-style: italic; font-weight: 300; font-size: 1.15rem; color: var(--accent); margin-bottom: 2.4rem; }
+    .description { font-size: 1rem; color: rgba(255,255,255,0.7); line-height: 1.7; margin: 0 auto 1rem; max-width: 700px; }
+    .attribution { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.6; margin-bottom: 2.5rem; }
+    .attribution strong { color: rgba(255,255,255,0.8); }
+    .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; max-width: 620px; margin: 0 auto; }
+    .card {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+      padding: 1.4rem 1rem; text-decoration: none; color: white;
+      transition: background 0.2s, transform 0.2s;
+      display: flex; flex-direction: column; align-items: center; gap: 0.7rem;
+    }
+    .card:hover { background: rgba(255,255,255,0.1); transform: translateY(-3px); }
+    .card svg { flex-shrink: 0; }
+    .card-title { font-family: 'Merriweather', serif; font-weight: 700; font-size: 1.05rem; }
+    .card-desc { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.5; }
+    .badge { font-size: 0.7rem; background: rgba(var(--accent-rgb),0.22); color: var(--accent); padding: 0.2rem 0.6rem; font-weight: 600; margin-top: auto; }
+    .short-col { width: 300px; flex-shrink: 0; box-shadow: 0 8px 32px rgba(0,0,0,0.4); background: #000; }
+    .short-col iframe { display: block; width: 100%; aspect-ratio: 9 / 16; border: 0; }
+    .more {
+      position: absolute; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
+      font-size: 0.8rem; letter-spacing: 0.08em; color: rgba(255,255,255,0.55); text-decoration: none; white-space: nowrap;
+    }
+    .more:hover { color: var(--accent); }
+
+    /* ── sections ─────────────────────────────── */
+    .about { background: var(--bg2); border-top: 1px solid rgba(255,255,255,0.08); }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 4.5rem 3rem; }
+    .wrap + .wrap { padding-top: 0; }
+    .label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
+    h2 { font-family: 'Merriweather', serif; font-weight: 300; font-size: 2rem; line-height: 1.3; margin-bottom: 0.8rem; }
+    h3 { font-family: 'Merriweather', serif; font-weight: 700; font-size: 1.05rem; margin-bottom: 0.4rem; }
+    .lede { color: rgba(255,255,255,0.7); line-height: 1.7; max-width: 760px; margin-bottom: 1rem; }
+    .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2rem; }
+    .fact { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); padding: 1.2rem 1.1rem; }
+    .fact .big { font-family: 'Merriweather', serif; font-size: 1.6rem; color: var(--accent); margin-bottom: 0.3rem; }
+    .fact p { font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.45; }
+    .film { width: 100%; aspect-ratio: 16 / 9; border: 0; display: block; margin-top: 1.8rem; box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+    .directions { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; margin-top: 1.8rem; }
+    .direction { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); padding: 1.1rem 1.2rem 1.2rem; }
+    .direction ul { list-style: none; margin-top: 0.5rem; }
+    .direction li { position: relative; padding-left: 1.1rem; margin-bottom: 0.4rem; color: rgba(255,255,255,0.68); font-size: 0.9rem; line-height: 1.5; }
+    .direction li::before { content: '•'; position: absolute; left: 0; color: var(--accent); }
+    .direction .tag { display: inline-block; margin-top: 0.6rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; }
+    .direction .tag:hover { text-decoration: underline; }
+    code { font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; background: rgba(255,255,255,0.08); padding: 0.05rem 0.3rem; }
+    .callout {
+      margin-top: 2rem; background: rgba(var(--accent-rgb),0.13); border: 1px solid rgba(var(--accent-rgb),0.45);
+      padding: 1rem 1.3rem; color: rgba(255,255,255,0.85); line-height: 1.6;
+    }
+    .links { margin-top: 1.4rem; font-size: 0.9rem; }
+    .links a { margin-right: 1.4rem; text-decoration: none; font-weight: 600; }
+    .links a:hover { text-decoration: underline; }
+    .footer { text-align: center; padding: 1.5rem 1.5rem 2rem; font-size: 0.75rem; color: rgba(255,255,255,0.35); background: var(--bg2); }
+    .footer a { color: rgba(255,255,255,0.45); }
+
+    @media (max-width: 900px) {
+      .hero { padding: 3rem 1.25rem 4.5rem; }
+      .layout { flex-direction: column; }
+      .short-col { width: min(100%, 300px); }
+      h1 { font-size: 2.1rem; }
+      .wrap { padding: 3.5rem 1.25rem; }
+      .facts { grid-template-columns: 1fr 1fr; }
+      .directions { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 520px) {
+      .cards { grid-template-columns: 1fr; }
+      h2 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar"></div>
+  <header class="hero">
+    <div class="layout">
+      <div class="content">
+        <h1>Assisteens: Turning Teenagers into Citizens</h1>
+        <div class="subtitle">Today's Budding Volunteers, Tomorrow's Leaders</div>
+        <p class="description">
+          A short documentary and a recruitment short about Assisteens, the teen-led volunteer group of
+          <a href="https://www.assistanceleague.org/chapter/greatersandiego/assisteens" target="_blank" rel="noopener"><strong>Assistance League of Greater San Diego</strong></a>.
+          Members help provide school clothing, books and essentials to children and families in San Diego,
+          and volunteer at the Assistance League Thrift Shop and at community events.
+        </p>
+        <p class="attribution">
+          Edited by <strong>Emmet Muschenetz</strong> in DaVinci Resolve, with the timelines built by the Lua scripts below.
+        </p>
+        <div class="cards">
+          <a class="card" href="https://www.youtube.com/watch?v=oDFZpPf4yF0" target="_blank" rel="noopener">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="5" y="11" width="38" height="26" rx="4" stroke="white" stroke-width="2"/><path d="M20 18v12l10-6-10-6z" fill="#E8846B"/></svg>
+            <div class="card-title">The Documentary</div>
+            <div class="card-desc">Members and leaders on service, leadership and personal growth</div>
+            <div class="badge">YOUTUBE</div>
+          </a>
+          <a class="card" href="https://www.youtube.com/shorts/ZUe_yq9ZN1c" target="_blank" rel="noopener">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="15" y="4" width="18" height="40" rx="3" stroke="white" stroke-width="2"/><path d="M21 18v12l9-6-9-6z" fill="#E8846B"/></svg>
+            <div class="card-title">Recruitment Short</div>
+            <div class="card-desc">30 seconds on why to join, made for phones</div>
+            <div class="badge">YOUTUBE SHORT</div>
+          </a>
+          <a class="card" href="scripts/build_documentary.lua" download>
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="8" y="4" width="32" height="40" rx="3" stroke="white" stroke-width="2"/><path d="M18 20l-5 4 5 4M30 20l5 4-5 4M26 17l-4 14" stroke="#E8846B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="card-title">Documentary Script</div>
+            <div class="card-desc">Builds the documentary timeline in Resolve</div>
+            <div class="badge">LUA</div>
+          </a>
+          <a class="card" href="scripts/build_recruitment_short.lua" download>
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="8" y="4" width="32" height="40" rx="3" stroke="white" stroke-width="2"/><path d="M18 20l-5 4 5 4M30 20l5 4-5 4M26 17l-4 14" stroke="#E8846B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="card-title">Short Script</div>
+            <div class="card-desc">Builds the vertical 9:16 short in Resolve</div>
+            <div class="badge">LUA</div>
+          </a>
+        </div>
+      </div>
+      <div class="short-col">
+        <iframe src="https://www.youtube-nocookie.com/embed/ZUe_yq9ZN1c" title="Join Assisteens: Today's Budding Volunteers, Tomorrow's Leaders" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+    <a class="more" href="#about">About Assisteens and the films &darr;</a>
+  </header>
+
+  <main class="about">
+    <section class="wrap" id="about">
+      <div class="label">Assistance League of Greater San Diego</div>
+      <h2>What Assisteens Is</h2>
+      <p class="lede">
+        Assisteens is the teen volunteer group of Assistance League of Greater San Diego, focused on community service,
+        leadership and personal growth. Members help provide school clothing, books and essentials to children and
+        families in San Diego, and volunteer at the Assistance League Thrift Shop and at community events.
+      </p>
+      <p class="lede">
+        The teens run their own meetings and plan their own events. Along the way they build teamwork, communication,
+        budgeting and marketing skills, and make friends doing it.
+      </p>
+      <div class="facts">
+        <div class="fact"><div class="big">Teen-led</div><p>Members run their own meetings and plan their own events</p></div>
+        <div class="fact"><div class="big">24 hrs</div><p>Of volunteering a year, at minimum</p></div>
+        <div class="fact"><div class="big">2nd Sunday</div><p>Of every month, when the group meets</p></div>
+        <div class="fact"><div class="big">San Diego</div><p>School clothing, books and essentials for local kids and families</p></div>
+      </div>
+      <p class="links">
+        <a href="https://www.assistanceleague.org/chapter/greatersandiego/assisteens" target="_blank" rel="noopener">Learn more and join &rarr;</a>
+        <a href="https://www.instagram.com/assistanceleaguesandiego/" target="_blank" rel="noopener">Instagram &rarr;</a>
+      </p>
+    </section>
+
+    <section class="wrap" id="films">
+      <div class="label">The films</div>
+      <h2>Assisteens: Turning Teenagers into Citizens</h2>
+      <p class="lede">
+        The documentary profiles the group through interviews with its members and leaders, alongside footage from the
+        Thrift Shop and their volunteer work.
+      </p>
+      <iframe class="film" src="https://www.youtube-nocookie.com/embed/oDFZpPf4yF0" title="Assisteens: Turning Teenagers into Citizens" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </section>
+
+    <section class="wrap" id="scripts">
+      <div class="label">How they were edited</div>
+      <h2>Built with Lua in DaVinci Resolve</h2>
+      <p class="lede">
+        Both edits were assembled by scripts run from Resolve's Lua console. The graphics, credits and music were made with
+        ffmpeg first; each script then creates the project, places every clip at an exact frame and applies the grades,
+        so the whole edit can be rebuilt from scratch in one step.
+      </p>
+      <div class="directions">
+        <div class="direction">
+          <h3>build_documentary.lua</h3>
+          <ul>
+            <li>1920&times;1080 at 23.976 fps, the film cut into 40 shots from scene detection</li>
+            <li>A new title slide after the opening card and new end credits</li>
+            <li>Clean white lower thirds laid over the old burned-in names, with nothing cropped</li>
+            <li>Warm interview grade and a bolder B-roll grade (ASC CDL), with B-roll stabilized</li>
+            <li>Dialogue cleaned with Adobe Enhance Speech, over Toby Fox's &ldquo;Home&rdquo; ducked under speech</li>
+          </ul>
+          <a class="tag" href="scripts/build_documentary.lua" download>Download the script &darr;</a>
+        </div>
+        <div class="direction">
+          <h3>build_recruitment_short.lua</h3>
+          <ul>
+            <li>A vertical 1080&times;1920 timeline, about 30 seconds long</li>
+            <li>Footage cut into beats, cropped to 9:16 and graded, a few sped up 1.25&ndash;1.5&times;</li>
+            <li>Animated text and graphics with alpha, one layer per beat</li>
+            <li>A rapid-fire burst of four faces under a &ldquo;BE PART OF IT.&rdquo; card</li>
+            <li>Set to Toby Fox's &ldquo;Hopes and Dreams&rdquo;, credited on the end card</li>
+          </ul>
+          <a class="tag" href="scripts/build_recruitment_short.lua" download>Download the script &darr;</a>
+        </div>
+      </div>
+      <p class="callout">
+        <strong>To run one:</strong> open Resolve's Console, switch it to Lua and run
+        <code>dofile("/path/to/build_documentary.lua")</code>. Change the <code>ROOT</code> path at the top of each script
+        first; the source footage and generated media aren't included here.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Films by <a href="https://github.com/DuckieOverload">Emmet Muschenetz</a> &middot;
+    Music by Toby Fox &middot;
+    <a href="https://www.assistanceleague.org/chapter/greatersandiego/assisteens" target="_blank" rel="noopener">Assisteens at Assistance League of Greater San Diego</a>
+  </footer>
+</body>
+</html>
